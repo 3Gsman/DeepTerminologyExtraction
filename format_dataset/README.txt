@@ -1,0 +1,1 @@
+The script in this directory changes the format of the automatic extraction datasets given in https://github.com/LIAAD/KeywordExtractor-Datasets#Inspec to the format needed for the sequence labeling process
