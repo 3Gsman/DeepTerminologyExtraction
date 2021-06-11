@@ -1,7 +1,5 @@
 # DeepTerminologyExtraction
 
-Tesis:
-https://www.overleaf.com/8185946991jphbkpcygrzt
+Cuaderno de laboratorio:
 
-Kanvan:
-https://trello.com/invite/b/rLN4aQz2/dc8ab3e27eb9597e9adc6d77541aa30c/tfm-deepterminologyextraction
+https://docs.google.com/document/d/1g0VIJy55nIJK_u9zkwfueBAuAcNFbPWluHDBfnKy5fU/edit?usp=sharing
