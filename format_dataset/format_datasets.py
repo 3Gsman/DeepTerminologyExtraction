@@ -124,13 +124,17 @@ for it in range(len(abstracts_list)):
 	  item = item.replace('.',' .')
 	  item = item.replace(',',' ,')
 	  item = item.replace('"','')
-	  lower_abstracts.append(item)#.lower())
+	  item = item.replace('(','')
+	  item = item.replace(')','')
+	  item = item.replace(':',' :')
+	  item = item.replace('?','')
+	  lower_abstracts.append(item.lower())
 
 	lower_keywords = []
 	for item in keywords_list[it]:
 	  temp = []
 	  for word in item:
-	    temp.append(word)#.lower())
+	    temp.append(word.lower())
 	  temp = list(set(temp))
 	  lower_keywords.append(temp)
 
@@ -165,7 +169,7 @@ for it in range(len(abstracts_list)):
 
 	for i in range(len(preformated_abstracts)):
 	  for j in range(len(lower_keywords[i])):
-	    preformated_abstracts[i] = preformated_abstracts[i].replace(lower_keywords[i][j],formated_keywords[i][j])
+	    preformated_abstracts[i] = preformated_abstracts[i].replace(' '+lower_keywords[i][j]+' ',' '+formated_keywords[i][j]+' ')
 	    	  
 	if suffle_datasets:
 		random.shuffle(preformated_abstracts)
