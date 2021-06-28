@@ -1,10 +1,12 @@
-show_info = False
-suffle_datasets = False
+show_info = False 					# Toggle it to obtain information about the datasets in the console
+suffle_datasets = False			# Toggle it to suffle the datasets
+downsample_to = 0						# Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option
 
 import os
 import statistics
 import random
 import sys
+import codecs
 
 datasets = os.listdir('not_formated_datasets/')
 
@@ -19,11 +21,12 @@ datasets_list = []
 datasets_error = []
 for dataset in datasets:
   
+  save_dataset = True
+
   try:
 	  path_abstracts, dirs_abstracts, files_abstracts = next(os.walk("not_formated_datasets/"+dataset+"/docsutf8")) 
-
 	  path_keys, dirs_keys, files_keys = next(os.walk("not_formated_datasets/"+dataset+"/keys")) 
-	  
+
 	  if show_info:
 		  print("")
 		  print('_____________' + dataset.upper() + '_____________')
@@ -40,18 +43,15 @@ for dataset in datasets:
 	  keywords = []
 
 	  for item in files_keys:
-	    
-	    path_abs = "not_formated_datasets/"+dataset+"/docsutf8/"+item[:-4]+".txt"
 
-	    file_abs = open(path_abs, "rt")
+	    path_abs = "not_formated_datasets/"+dataset+"/docsutf8/"+item[:-4]+".txt"
+	    file_abs = open(path_abs, "rt", encoding="utf8")
 	    data_abs = file_abs.read()
 	    data_abs = data_abs.replace('\t','')
 	    data_abs = data_abs.replace('\n','. ')
-
 	    path_key = "not_formated_datasets/"+dataset+"/keys/"+item
 
-	    file_key = open(path_key, "rt")
-	    
+	    file_key = open(path_key, "rt", encoding="utf8")	    
 	    data_key = file_key.read()
 	    data_key = data_key.replace('\t','')
 	    words_key = data_key.split()
@@ -107,16 +107,23 @@ for dataset in datasets:
 		  print("")
 
 	  datasets_list.append(dataset)
-      
 
+	  print("Dataset loaded suscessfully " + dataset)
 
   except:
-  	print("ERROR: Wrong dataset format")
+  	print("ERROR: Wrong dataset format " + dataset)
   	datasets_error.append(dataset)
+  	save_dataset = False
 
-  filenames_list.append(filenames)
-  abstracts_list.append(abstracts)
-  keywords_list.append(keywords)
+  if downsample_to > 0:
+  	filenames = filenames[:downsample_to]
+  	abstracts = abstracts[:downsample_to]
+  	keywords = keywords[:downsample_to]
+
+  if save_dataset:	
+	  filenames_list.append(filenames)
+	  abstracts_list.append(abstracts)
+	  keywords_list.append(keywords)
 
 for it in range(len(abstracts_list)):
 	lower_abstracts = []
@@ -192,64 +199,58 @@ for it in range(len(abstracts_list)):
 
 	output_path = 'formated_datasets/'+datasets[it]+'/'
 
-	f = open(output_path+"train.txt","w+")
+	with codecs.open(output_path+"train.txt", "w", "utf-8-sig") as f:
 
-	for item in train_list:
-	  abstract_list = item.split()
+		for item in train_list:
+		  abstract_list = item.split()
 
-	  for word in abstract_list:
+		  for word in abstract_list:
 
-	    if word[-5:] == 'B-KEY':
-	       f.write(word[:-5] + '\tB-KEY\n')
-	    
-	    elif word[-5:] == 'I-KEY':
-	      f.write(word[:-5] + '\tI-KEY\n')
+		    if word[-5:] == 'B-KEY':
+		       f.write(word[:-5] + '\tB-KEY\n')
+		    
+		    elif word[-5:] == 'I-KEY':
+		      f.write(word[:-5] + '\tI-KEY\n')
 
-	    else:
-	      f.write(word + '\tO\n')
-	  
-	  f.write('\n')
-
-	f.close()
+		    else:
+		      f.write(word + '\tO\n')
+		  
+		  f.write('\n')
 
 
-	f = open(output_path+"test.txt","w+")
+	with codecs.open(output_path+"test.txt", "w", "utf-8-sig") as f:
 
-	for item in test_list:
-	  abstract_list = item.split()
+		for item in test_list:
+		  abstract_list = item.split()
 
-	  for word in abstract_list:
+		  for word in abstract_list:
 
-	    if word[-5:] == 'B-KEY':
-	       f.write(word[:-5] + '\tB-KEY\n')
-	    
-	    elif word[-5:] == 'I-KEY':
-	      f.write(word[:-5] + '\tI-KEY\n')
+		    if word[-5:] == 'B-KEY':
+		       f.write(word[:-5] + '\tB-KEY\n')
+		    
+		    elif word[-5:] == 'I-KEY':
+		      f.write(word[:-5] + '\tI-KEY\n')
 
-	    else:
-	      f.write(word + '\tO\n')
-	  
-	  f.write('\n')
-
-	f.close()
+		    else:
+		      f.write(word + '\tO\n')
+		  
+		  f.write('\n')
 
 
-	f = open(output_path+"dev.txt","w+")
+	with codecs.open(output_path+"dev.txt", "w", "utf-8-sig") as f:
 
-	for item in valid_list:
-	  abstract_list = item.split()
+		for item in valid_list:
+		  abstract_list = item.split()
 
-	  for word in abstract_list:
+		  for word in abstract_list:
 
-	    if word[-5:] == 'B-KEY':
-	       f.write(word[:-5] + '\tB-KEY\n')
-	    
-	    elif word[-5:] == 'I-KEY':
-	      f.write(word[:-5] + '\tI-KEY\n')
+		    if word[-5:] == 'B-KEY':
+		       f.write(word[:-5] + '\tB-KEY\n')
+		    
+		    elif word[-5:] == 'I-KEY':
+		      f.write(word[:-5] + '\tI-KEY\n')
 
-	    else:
-	      f.write(word + '\tO\n')
-	  
-	  f.write('\n')
-	  
-	f.close()
+		    else:
+		      f.write(word + '\tO\n')
+		  
+		  f.write('\n')
