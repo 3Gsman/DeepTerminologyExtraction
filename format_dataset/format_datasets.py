@@ -1,6 +1,15 @@
-show_info = False 					# Toggle it to obtain information about the datasets in the console
-suffle_datasets = False			# Toggle it to suffle the datasets
-downsample_to = 0						# Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option
+# File: 		format_datasets.py 		v1.0 	09/07/2021
+# Author:		German Garcia Garcia	gggsman@gmail.com
+# Description:	The following script is a dataset format convertor that changes the format from the datasets 
+# 				found in the https://github.com/LIAAD/KeywordExtractor-Datasets repository, a collection of
+#				20 keyword extraction dataset collection to the format needed in the system provided in the
+#				master's final project traning system found in the following github repository.
+# Github:		https://github.com/3Gsman/DeepTerminologyExtraction
+
+
+show_info = False 			# Toggle it to obtain information about the datasets in the console
+suffle_datasets = False		# Toggle it to suffle the datasets
+downsample_to = 0			# Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option
 
 import os
 import statistics
@@ -8,11 +17,15 @@ import random
 import sys
 import codecs
 
+if not os.path.exists('not_formated_datasets'):
+    os.makedirs('not_formated_datasets')
+
 datasets = os.listdir('not_formated_datasets/')
 
 if len(datasets) < 1:
 	print("ERROR: not_formated_datasets directory is empty")
 	sys.exit()
+datasets.remove('.DS_Store') 
 
 filenames_list = []
 abstracts_list = []
@@ -149,7 +162,6 @@ for it in range(len(abstracts_list)):
 	formated_keywords = []
 
 	for keywords_lst in lower_keywords:
-	  
 	  formated_keywords_per_abstract = []
 	  for item in keywords_lst:
 
@@ -194,6 +206,7 @@ for it in range(len(abstracts_list)):
 
 	try:
 		os.makedirs(dirName)
+		print('Directory: ',dirName," created")
 	except:
 		pass
 
@@ -254,3 +267,5 @@ for it in range(len(abstracts_list)):
 		      f.write(word + '\tO\n')
 		  
 		  f.write('\n')
+
+print("__________ Script execution completed __________")
