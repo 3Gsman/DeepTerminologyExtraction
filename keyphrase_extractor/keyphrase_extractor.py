@@ -67,3 +67,5 @@ totxt = temp2 + str_keyword
 with open('output.txt', 'w') as f:
     for item in totxt:
         f.write("%s\n" % item)
+
+print("__________ Script execution completed __________")
