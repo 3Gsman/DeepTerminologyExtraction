@@ -1,5 +1,5 @@
-keyphraseExtractor.py v1.0 09/07/2021
-German Garcia Garcia
+keyphrase_extractor.py 	v1.0 	09/07/2021
+German Garcia Garcia	gggsman@gmail.com
 
 MSC in Artificial Intelligence
 Final Master´s project: Applying Deep Learning Techniques to Terminology Extraction in Specific Domains
@@ -14,7 +14,7 @@ https://github.com/3Gsman/DeepTerminologyExtraction
 
 INSTALATION: 
 
-Python 3.8 or higher is requiered to use this program.
+Python 3.8 or higher is requiered to run this program.
 
 This program uses the FLAIR library: https://github.com/flairNLP/flair, it can be download
 using pip with the following command: pip3 install flair
