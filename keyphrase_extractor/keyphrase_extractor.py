@@ -1,5 +1,5 @@
-# File: 		keyphraseExtractor.py v1.0 09/07/2021
-# Author:		German Garcia Garcia
+# File: 		keyphrase_extractor.py 	v1.0 	09/07/2021
+# Author:		German Garcia Garcia	gggsman@gmail.com
 # Description:	The following script is an automatic terminology or keyphrase extractor that given a text
 #				input returns the text itself with the keywords on it highlighted and a list of them,
 #				the model has been trained using the system provided in the following github repository.
