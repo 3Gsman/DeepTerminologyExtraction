@@ -1,0 +1,23 @@
+ORIGINAL TEXT
+Automatic terminology extraction or automatic keyphrase extraction is a very useful subfield of natural language processing when it comes to synthesizing information from texts in concise terms. In this master's thesis, this problem is approached with a sequence labeling approach and using supervised deep learning techniques in specific domains, using bidirectional LTSM (Long short-term memory) neural networks and contextual word embeddings. A statistical significance study has been carried out to verify that the results presented in this work are significant. The final result in the F1 score in the Inspec dataset is 0.5730 slightly better than the higher result of the state of the art, in addition, it offers less dispersed results. Additionally in this work, the variation of samples in the training set is analyzed, a program to convert the datasets to a sequence labeling format needed for the final system is provided and there is an available sample program to test the keyphrase extractor in texts given by the user.
+
+TEXT WITH TAGS
+Automatic <B-KEY> terminology <I-KEY> extraction <I-KEY> or automatic <B-KEY> keyphrase <I-KEY> extraction <I-KEY> is a very useful subfield of natural <B-KEY> language <I-KEY> processing <I-KEY> when it comes to synthesizing information from texts in concise terms . In this master 's thesis , this problem is approached with a sequence <B-KEY> labeling <I-KEY> approach <I-KEY> and using supervised <B-KEY> deep <I-KEY> learning <I-KEY> techniques <I-KEY> in specific domains , using bidirectional <B-KEY> LTSM <I-KEY> ( Long <B-KEY> short-term <I-KEY> memory <I-KEY> ) neural <B-KEY> networks <I-KEY> and contextual <B-KEY> word <I-KEY> embeddings <I-KEY> . A statistical <B-KEY> significance <I-KEY> study <I-KEY> has been carried out to verify that the results presented in this work are significant . The final result in the F1 <B-KEY> score <I-KEY> in the Inspec <B-KEY> dataset <I-KEY> is 0.5730 slightly better than the higher result of the state of the art , in addition , it offers less dispersed results . Additionally in this work , the variation of samples in the training <B-KEY> set <I-KEY> is analyzed , a program to convert the datasets to a sequence <B-KEY> labeling <I-KEY> format <I-KEY> needed for the final system is provided and there is an available sample <B-KEY> program <I-KEY> to test the keyphrase <B-KEY> extractor <I-KEY> in texts given by the user .
+
+KEYWORDS
+keyphrase extractor
+sequence labeling format
+Automatic terminology extraction
+neural networks
+supervised deep learning techniques
+training set
+sample program
+bidirectional LTSM
+Long short-term memory
+natural language processing
+automatic keyphrase extraction
+statistical significance study
+Inspec dataset
+F1 score
+contextual word embeddings
+sequence labeling approach
