@@ -25,7 +25,11 @@ datasets = os.listdir('not_formated_datasets/')
 if len(datasets) < 1:
 	print("ERROR: not_formated_datasets directory is empty")
 	sys.exit()
-datasets.remove('.DS_Store') 
+
+try:
+	datasets.remove('.DS_Store')
+except:
+	pass 
 
 filenames_list = []
 abstracts_list = []
