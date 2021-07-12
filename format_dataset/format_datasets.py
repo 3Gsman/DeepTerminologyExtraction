@@ -7,15 +7,38 @@
 # Github:		https://github.com/3Gsman/DeepTerminologyExtraction
 
 
-show_info = False 			# Toggle it to obtain information about the datasets in the console
-suffle_datasets = False		# Toggle it to suffle the datasets
-downsample_to = 0			# Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option
+# show_info = False 			# Toggle it to obtain information about the datasets in the console
+# suffle_datasets = False		# Toggle it to suffle the datasets
+# downsample_to = 0				# Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option
 
 import os
 import statistics
 import random
 import sys
 import codecs
+import argparse
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--info', type=str, default="N",help='( y / n ) Set y to obtain information about the datasets in the console')
+parser.add_argument('--suffle', type=bool, help='( y / n ) Set y to suffle the datasets')
+parser.add_argument('--downsample', type=int, default=0, help='Select the number of samples wanted in the dataset. Set it as 0 or -1 to disable the option')
+
+args = parser.parse_args()
+
+downsample_to = args.downsample
+
+if args.info == "Y" or args.info == "y" or args.info == "yes" or args.info == "YES" or args.info == "Yes" or args.info == "True":
+	show_info = True
+else:
+	show_info = False
+
+if args.suffle == "Y" or args.suffle == "y" or args.suffle == "yes" or args.suffle == "YES" or args.suffle == "Yes" or args.suffle == "True":
+	suffle_datasets = True
+else:
+	suffle_datasets = False
+
 
 if not os.path.exists('not_formated_datasets'):
     os.makedirs('not_formated_datasets')
@@ -133,6 +156,7 @@ for dataset in datasets:
   	save_dataset = False
 
   if downsample_to > 0:
+  	print("Downsampling to ", downsample_to, "documents")
   	filenames = filenames[:downsample_to]
   	abstracts = abstracts[:downsample_to]
   	keywords = keywords[:downsample_to]
