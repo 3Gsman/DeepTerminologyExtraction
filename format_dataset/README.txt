@@ -1,4 +1,4 @@
-format_datasets.py 		v1.0 	09/07/2021
+format_datasets.py 		v1.1	12/07/2021
 German Garcia Garcia 	gggsman@gmail.com
 
 MSC in Artificial Intelligence
@@ -33,12 +33,12 @@ To use this script you need to paste the desired datasets from the https://githu
 repository in the 'not_formated_datasets' directory, execute the script using the console, wait until the script finish,
 and get the new formated datasets files from the 'formated_datasets' directory.
 
-The program has 3 editable variables found at the begining of the script to change the behaviour of it:
+The program has 3 editable arguments:
 
-- show_info:		default value: False.	If True, prints statistical information in the console. Infotmation as
+--info:				default value: False.	If True, prints statistical information in the console. Infotmation as
 					the mean, std, max and min values of the words per abstract in the corpus, keywords pero abstract
 					and words per keywords.
 
-- suffle_datasets:	default value: False. 	If True, shuffles the abstracts in the train, test and dev set of abstracts.
+--suffle:			default value: False. 	If True, suffles the abstracts in the train, test and dev set of abstracts.
 
-- downsample_to:	default value: 0. 		If 10 or higher, downsample the dataset to the number of the variable.
+--downsample:		default value: 0. 		If 8 or higher, downsample the dataset to the number of the variable.
