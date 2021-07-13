@@ -26,7 +26,7 @@ Using this program requires 2 files:
 
 - model.pt: 	The model file, due storage constrains, github do not let upload large files 
 				to the platform. You can access to this file in the following google drive link:
-				https://drive.google.com/file/d/1vHaj5d8yknMVe4zPr837ODMhuIax7gFw/view?usp=sharing
+				https://drive.google.com/file/d/1Y4VQxkBZnzMVLnFwhkJowphoQdthRcl-/view?usp=sharing
 				or contact with the author, German Garcia in the following email: gggsman@gmail.com
 				Then, move the model file to the working directory with the rest of the files.
 
