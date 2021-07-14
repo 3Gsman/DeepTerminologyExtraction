@@ -27,6 +27,12 @@ is an available sample program to test the keyphrase extractor in texts given by
 INDEX:
 
 - datasets folder: 		has the different datasets used during the experimentation.
+				The Inspec dataset was downloaded from
+				https://github.com/midas-research/keyphrase-extraction-as-sequence-labeling-data
+				and the other datasets were converted using the script provided in this 
+				repository to change the original format to the format needed from:
+				https://github.com/LIAAD/KeywordExtractor-Datasets
+				
 
 - documents folder:		has two documents, the main document that presents this work and a lab 
 				notebook where results and annotations can be found.
@@ -38,7 +44,11 @@ INDEX:
 				the user using the trained model.
 
 - main_program folder:		has the Jupyter notebook with the main program that is able to run
-				different experiments to train a keyword extraction model.
+				different experiments to train a keyword extraction model. It also
+				includes a requirements.txt file with all the versions of the libraries
+				that the environment used in the execution of the experiments. 
+				The notebook can also be found in the following Google Colab link:
+				https://colab.research.google.com/drive/14xFQ8nML3uh_SP96T6GOvHuvnP4mk1Kq?usp=sharing
 
-- results folder:		has the results and the modelsof the two main models studied in this work, 
+- results folder:		has the results and the models of the two main models studied in this work, 
 				the one proposed by Sahrawat et ali., and the one proposed in this work.
