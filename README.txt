@@ -33,7 +33,6 @@ INDEX:
 				repository to change the original format to the format needed from:
 				https://github.com/LIAAD/KeywordExtractor-Datasets
 				
-
 - documents folder:		has two documents, the main document that presents this work and a lab 
 				notebook where results and annotations can be found.
 
